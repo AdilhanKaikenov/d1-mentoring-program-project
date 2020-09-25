@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <definition name="home" extends="default">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/views/layouts/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/home.jsp"/>
+    </definition>
+
+    <definition name="registration" extends="default">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/views/layouts/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/registration.jsp"/>
+    </definition>
+
+    <definition name="profile" extends="default">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/views/layouts/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/profile.jsp"/>
+    </definition>
+
+    <definition name="access-denied-page" extends="default">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/views/layouts/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/access-denied-page.jsp"/>
+    </definition>
+
+    <definition name="create-product" extends="default">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/views/layouts/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/create-product.jsp"/>
+    </definition>
+
+</tiles-definitions>

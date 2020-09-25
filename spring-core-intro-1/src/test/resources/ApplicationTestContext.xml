@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <bean id="position1" class="com.epam.mentoring.spring.intro.model.Position">
+        <constructor-arg>
+            <value type="com.epam.mentoring.spring.intro.model.PositionTitle">DIRECTOR</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="double">200000</value>
+        </constructor-arg>
+        <constructor-arg>
+            <null/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="position2" class="com.epam.mentoring.spring.intro.model.Position">
+        <constructor-arg>
+            <value type="com.epam.mentoring.spring.intro.model.PositionTitle">ASSISTANT_DIRECTOR</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="double">150000</value>
+        </constructor-arg>
+        <constructor-arg>
+            <null/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="company" class="com.epam.mentoring.spring.intro.model.Company"
+          destroy-method="destroy">
+        <property name="positions">
+            <list value-type="com.epam.mentoring.spring.intro.model.Position">
+                <ref bean="position1"/>
+                <ref bean="position2"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- different types of autowiring: byName, byType, constructor -->
+    <bean id="employeeService" class="com.epam.mentoring.spring.intro.service.EmployeeService" autowire="byName"/>
+
+    <bean id="positionService" class="com.epam.mentoring.spring.intro.service.PositionService" autowire="byType"/>
+
+    <bean id="salaryService" class="com.epam.mentoring.spring.intro.service.SalaryService" autowire="constructor"/>
+
+    <bean id="salary" class="com.epam.mentoring.spring.intro.model.Salary" scope="prototype" />
+
+    <bean id="employee1" class="com.epam.mentoring.spring.intro.model.Employee">
+        <property name="firstname"><value type="java.lang.String">Oscar</value></property>
+        <property name="lastname"><value type="java.lang.String">Smith</value></property>
+        <property name="age"><value type="int">50</value></property>
+        <property name="workExperience"><value type="int">20</value></property>
+        <property name="salary"><ref bean="salary"/></property>
+    </bean>
+
+    <!--Spring provides full support for the JSR-303 Bean Validation API.-->
+    <!--LocalValidatorFactoryBean implements both javax.validation.Validator and org.springframework.validation.Validator.
+    You may inject a reference to one of these two interfaces into beans that need to invoke validation logic-->
+    <!--This allows a javax.validation.Validator to be injected wherever validation is needed in your application.-->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+    <context:annotation-config />
+</beans>

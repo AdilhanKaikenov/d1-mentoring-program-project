@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>com.epam.mentoring.web.servlet.MyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyServlet</servlet-name>
+        <url-pattern>/myServlet</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>VisitCountCookieFilter</filter-name>
+        <filter-class>com.epam.mentoring.web.filter.VisitCountCookieFilter</filter-class>
+        <init-param>
+            <param-name>pathToIgnore</param-name>
+            <param-value>/myServlet</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>VisitCountCookieFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+</web-app>

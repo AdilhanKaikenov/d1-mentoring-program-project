@@ -1,0 +1,11 @@
+1.	Heap should be divided to Old and Young generations of equal size, where areas of Young generation are in following ratio:  3-Eden, 1-S0, 1-S1
+2.	Heap should be of 512MB and divided to Old and Young generations of equal size, where areas of Young generation are in following ratio:  2-Eden, 1-S0, 1-S1
+3.	Heap should be of 512MB with Old generation of 128MB and Young generation with areas in following ratio:  3-Eden, 1-S0, 1-S1
+4.	Heap should be divided to Old generation of 128MB and Young generations of 384MB, where areas of Young generation are in following ratio:  3-Eden, 1-S0, 1-S1
+5.	Heap should be divided to Old generation of 128MB and Young generations with areas:  Eden of 384MB, S0 of 128MB, S1 of 128MB
+
+1) -Xms1024m -Xmx1024m -XX:SurvivorRatio=3 -XX:NewRatio=2
+2) -Xms512m -Xmx512m -XX:SurvivorRatio=2 -XX:NewRatio=2
+3) -Xms512m -Xmx512m -Xmn384m -XX:SurvivorRatio=3
+4) -Xms512m -Xmx512m -Xmn384m -XX:SurvivorRatio=3
+5) -Xms768m -Xmx768m -Xmn640m -XX:SurvivorRatio=5

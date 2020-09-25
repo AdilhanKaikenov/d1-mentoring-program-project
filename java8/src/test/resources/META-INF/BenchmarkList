@@ -1,0 +1,2 @@
+JMH S 61 com.epam.mentoring.java8.task5.CustomCollectorPerformanceTest S 98 com.epam.mentoring.java8.task5.generated.CustomCollectorPerformanceTest_testParallelStream_jmhTest S 18 testParallelStream S 10 Throughput E A 1 1 1 E I 2 10 E E I 2 10 E E I 1 1 E E E E E E E E E
+JMH S 61 com.epam.mentoring.java8.task5.CustomCollectorPerformanceTest S 90 com.epam.mentoring.java8.task5.generated.CustomCollectorPerformanceTest_testStream_jmhTest S 10 testStream S 10 Throughput E A 1 1 1 E I 2 10 E E I 2 10 E E I 1 1 E E E E E E E E E

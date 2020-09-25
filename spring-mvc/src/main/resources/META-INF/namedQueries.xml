@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="1.0" xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+
+    <named-query name="User.findSecurityDetailsByUsername">
+        <query><![CDATA[
+            SELECT NEW com.epam.mentoring.springmvc.vo.authentication.UserDetailsVO(
+                u.id,
+                u.username,
+                u.password,
+                u.role
+            )
+            FROM User u
+            WHERE u.username = :username
+        ]]></query>
+    </named-query>
+
+    <named-query name="User.findVoByUsername">
+        <query><![CDATA[
+            SELECT NEW com.epam.mentoring.springmvc.vo.UserVO(
+                u.id,
+                u.username,
+                u.password,
+                u.address,
+                u.photo,
+                u.role
+            )
+            FROM User u
+            WHERE u.username = :username
+        ]]></query>
+    </named-query>
+
+    <named-query name="User.updatePhoto">
+        <query><![CDATA[
+            UPDATE User u
+                SET u.photo = :photo
+                WHERE u.username = :username
+        ]]></query>
+    </named-query>
+
+</entity-mappings>
